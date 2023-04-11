@@ -122,6 +122,7 @@ func (s *TypeMapping) UnmarshalJSON(data []byte) error {
 			}
 
 		case "properties":
+			s.Properties = make(map[string]Property)
 			refs := make(map[string]json.RawMessage, 0)
 			dec.Decode(&refs)
 			for key, message := range refs {
